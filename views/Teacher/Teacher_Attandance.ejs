@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Social Media</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css">
+
+    <link rel="stylesheet" href="/subjects.css">
+     <link rel="stylesheet" href="/slide_bar.css">
+    <link rel="stylesheet" href="/teacher_attendance.css">
+
+</head>
+
+<body>
+    <%- include('../partials/Teacher_sidebar', { currentPage: 'Class' }) %>
+
+        <div class="main-content">
+            <form method="POST" action="/mark-attendance">
+            <input type="text" name="className" class='className' value="<%=className%>" disabled>
+            <div class="table-container">
+                <h1>Class - <%=className%></h1>
+                
+                   
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Roll Number</th>
+                                <th>Student Name</th>
+                                <th>Father Name</th>
+                                <th>Student ID</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% AllStudent.forEach((student,index)=> { %>
+                                <tr>
+                                    <td>
+                                        <input type='text' name='rollno[<%= student._id %>]' value='<%= index + 1 %>' readonly>
+                                    </td>
+                                    <td>
+                                        <input type='text' name='StudentName[<%= student._id %>]' value='<%= student.name %>' readonly>
+                                    </td>
+                                    <td>
+                                        <input type='text' name='StudentfatherName[<%= student._id %>]' value='<%= student.fatherName %>' readonly>
+                                       
+                                    </td>
+                                    <td>
+                                        <input type='text' name='StudentRegistration_Id[<%= student._id %>]' value='<%= student.Registration_Id %>' readonly>
+                                       
+                                    </td>
+
+                                    <td>
+                                        <select name="attendance[<%= student._id %>]">
+                                            <option value="Absent">Absent</option>
+                                            <option value="Present">Present</option>
+                                        
+                                        </select>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                        </tbody>
+                    </table>
+                    <button type="submit" <% if (alreadyMarked) { %> disabled <% } %> 
+                        style="<% if (alreadyMarked) { %> background-color: #555; cursor: not-allowed; <% } %>">
+                            <% if (alreadyMarked) { %> ✅ Attendance Already Marked <% } else { %> Submit Attendance <% } %>
+                        </button>
+                </form>
+            </div>
+    
+
+
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const selects = document.querySelectorAll('select[name^="attendance"]');
+
+        selects.forEach((select) => {
+            select.addEventListener('change', function () {
+                select.classList.remove('absent', 'present', 'late', 'half-day');
+                
+                switch (select.value) {
+                    case 'Absent':
+                        select.classList.add('absent');
+                        break;
+                    case 'Present':
+                        select.classList.add('present');
+                        break;
+                    default:
+                        break;
+                }
+            });
+        });
+    });
+
+
+    
+</script>
+</html>

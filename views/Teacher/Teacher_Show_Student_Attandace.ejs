@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/profile.css">
+    <link rel="stylesheet" href="/subjects.css">
+    <link rel="stylesheet" href="/Attandance.css">
+     <link rel="stylesheet" href="/slide_bar.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <%- include('../partials/Teacher_sidebar', { currentPage: 'Class' }) %>
+        <div class="main-content">
+            <h2>Class - <%=className %>
+            </h2>
+            <% if (success_msg) { %>
+                <div class="alert alert-success">
+                    <%= success_msg %>
+                </div>
+                <% } %>
+
+                    <% if (error_msg) { %>
+                        <div class="alert alert-danger">
+                            <%= error_msg %>
+                        </div>
+                        <% } %>
+
+                           
+                                <% studentsAttandance.forEach(student => { %> 
+                                    <div class="table-container">
+                                    <h2><%= new Date(student.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></h2>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Roll Number</th>
+                                                <th>Student Name</th>
+                                                <th>Student ID</th>
+                                                <th>Attendance</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% student.students.forEach(student => { %>
+                                                <tr>
+                                                    <td class="tdName"><%= student.student_Roll %></td>
+                                                    <td class="tdName"><%= student.student_Name %></td>
+                                                    <td class="tdName"><%= student.student_Id %></td>
+                                                    <td class="status"><%= student.status %></td>
+                                                </tr>
+                                            <% }) %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <% }); %>
+                            
+                            
+
+
+
+
+
+
+
+
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const statusCells = document.querySelectorAll('.status');
+        statusCells.forEach(cell => {
+            const status = cell.textContent.trim();
+            if (status === 'Present') {
+                cell.style.backgroundColor = 'rgb(35 157 35)';
+            } else if (status === 'Absent') {
+                cell.style.backgroundColor = '#ab2c2c';
+            }
+        });
+    });
+
+</script>
+
+</html>

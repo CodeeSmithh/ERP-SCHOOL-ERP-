@@ -1,0 +1,283 @@
+
+button {
+  width: 50%;
+  padding: 4px;
+  background: var(--accent-color);
+  margin-bottom: 5px;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+
+}
+
+.post-btn {
+  padding: 10px;
+  width: 100px;
+  text-align: center;
+  color: var(--accent-color);
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: var(--accent-color);
+}
+
+.post-btn a {
+  color: var(--bg-color);
+  text-decoration: none;
+}
+
+.post-btn:hover {
+  transform: translateY(-2px);
+    box-shadow: var(--glow);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow);
+}
+
+
+/* Panels for students and teachers */
+.panel {
+  background-color: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.03);
+}
+
+/* Panel headers */
+.panel h2 {
+  margin-bottom: 20px;
+  color: var(--accent-color);
+  font-size: 20px;
+}
+
+/* Search bar */
+.search-bar {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--input-bg);
+  margin-bottom: 20px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-bar:focus {
+  border-color: var(--accent-color);
+  box-shadow: var(--glow);
+}
+
+/* Student & Teacher card container (clickable link) */
+.student-container,
+.teacher-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--input-bg);
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.student-container:hover,
+.teacher-container:hover {
+  background-color: var(--accent-hover);
+  color: white;
+  box-shadow: var(--glow);
+}
+
+/* Info section inside card */
+.student-info,
+.teacher-info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Name & ID */
+.student-name,
+.teacher-name {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.student-id,
+.teacher-id,
+.time-ago {
+  font-size: 13px;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* On hover, override child text color */
+.student-container:hover .student-id,
+.teacher-container:hover .teacher-id,
+.student-container:hover .time-ago,
+.teacher-container:hover .time-ago {
+  color: #f1f1f1;
+}
+
+/* Class Navigation Menu */
+.allClass {
+  gap: 10px;
+  margin-bottom: 30px;
+  background-color: var(--card-color);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.allClass a {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  margin: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.allClass a:hover {
+  background-color: var(--accent-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(118, 55, 219, 0.3);
+}
+
+.allClass a i {
+  margin-right: 8px;
+  font-size: 0.9em;
+}
+
+/* Active link style (you can add .active class to current page link) */
+.allClass a.active {
+  background-color: var(--accent-color);
+  color: white;
+  border-color: var(--accent-hover);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .allClass {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .allClass a {
+    padding: 8px 12px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .allClass {
+    padding: 10px;
+  }
+
+  .allClass a {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+.class-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.class-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--card-color);
+  color: var(--text-color);
+  text-decoration: none;
+  height: 100px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--border-color);
+  text-align: center;
+  padding: 10px;
+}
+
+.class-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(118, 55, 219, 0.4);
+  border-color: var(--accent-color);
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* Active class state */
+.class-box.active {
+  background-color: var(--accent-color);
+  color: white;
+  border-color: var(--accent-hover);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .class-container {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+  }
+
+  .class-box {
+    height: 80px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .class-container {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+    padding: 0 10px;
+  }
+
+  .class-box {
+    height: 70px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Special styling for science/math classes */
+.class-box[data-class*="(M)"],
+.class-box[data-class*="(B)"] {
+  position: relative;
+  overflow: hidden;
+}
+
+.class-box[data-class*="(M)"]::after,
+.class-box[data-class*="(B)"]::after {
+  content: "★";
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 0.8rem;
+  color: gold;
+}

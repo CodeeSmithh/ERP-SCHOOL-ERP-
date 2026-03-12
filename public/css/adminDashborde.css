@@ -1,0 +1,145 @@
+.role-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: auto 0;
+  gap: 20px;
+}
+.main-content {
+   margin: auto 0;
+    margin-left: 230px;
+    /* width of sidebar */
+    padding: 40px;
+    background-color: var(--bg-color);
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.role-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  background-color: var(--card-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid var(--border-color);
+}
+
+.role-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--glow);
+  border-color: var(--accent-color);
+}
+
+.role-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.student-icon {
+  color: #6a5acd;
+  /* Slightly different color for student */
+}
+
+.teacher-icon {
+  color: #9370db;
+  /* Slightly different color for teacher */
+}
+
+.role-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.role-desc {
+  font-size: 14px;
+  text-align: center;
+  color: #666;
+}
+
+.panel {
+  background-color: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: var(--glow);
+  transition: box-shadow 0.3s ease;
+}
+
+.panel h2 {
+  margin-top: 0;
+  color: var(--accent-color);
+  font-size: 1.5em;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 5px;
+}
+
+.search-bar {
+  width: 95%;
+  padding: 10px 15px;
+  margin: 15px 0 25px;
+  font-size: 1em;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--input-bg);
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.search-bar:focus {
+  border-color: var(--accent-color);
+  box-shadow: var(--glow);
+}
+
+.student-container,
+.teacher-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--card-color);
+  padding: 12px 18px;
+  margin-bottom: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.student-container:hover,
+.teacher-container:hover {
+  background-color: var(--accent-hover);
+  box-shadow: var(--glow);
+  cursor: pointer;
+}
+
+.student-info,
+.teacher-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.student-name,
+.teacher-name {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.student-id,
+.teacher-id,
+.time-ago {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 4px;
+}

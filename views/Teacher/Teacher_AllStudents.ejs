@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css">
+     <link rel="stylesheet" href="/slide_bar.css">
+    <link rel="stylesheet" href="/subjects.css">
+    <style>
+        .main-content {
+  max-width: 100%;
+
+}
+    </style>
+</head>
+
+<body>
+
+    <%- include('../partials/Teacher_sidebar', { currentPage: 'Class' }) %>
+    <%- include('../partials/All_student') %>
+ 
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const statusCells = document.querySelectorAll('.status');
+        statusCells.forEach(cell => {
+            const perctange=Number(cell.textContent.split('%')[0])
+            if (perctange > 70) {
+                cell.style.color = '#00fd00';
+            }
+            if (perctange < 70) {
+                cell.style.color = 'yellow';
+            }if (perctange < 50) {
+                cell.style.color = 'orange';
+            }if (perctange < 30) {
+                cell.style.color = 'red';
+            }
+            
+        });
+    });
+
+</script>
+</html>

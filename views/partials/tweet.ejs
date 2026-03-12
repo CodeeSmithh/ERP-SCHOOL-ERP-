@@ -1,0 +1,45 @@
+<div class="main-content">
+  <h1>Tweet's</h1>
+
+  <!-- Create Post Section -->
+<form class="create-post" action="/save-tweet" method="POST">
+    <input type="hidden" name="registrationId" value="<%= registrationId %>">
+    <input type="hidden" name="className" value="<%= className %>">
+    <input type="hidden" name="userId" value="<%= userId %>">
+    <input type="hidden" name="username" value="<%=user_role.username %>">
+    <input type="hidden" name="role" value="<%=user_role.role %>">
+    
+    <textarea name="tweets" required></textarea>
+    <button type="submit">Post</button>
+</form>
+
+  <% for (let tweet of Tweets) { 
+    const role = tweet.user_role?.toLowerCase() || 'student'; // Default to student if not specified
+  %>
+    <div class="post">
+
+      <div class="post-header role-<%= role %>">
+        <img src="/<%= tweet.profile_img || 'default.jpg' %>" alt="User" class="user-avatar" />
+        <div class="user-info">
+          <h3><%= tweet.username %></h3>
+          <span class="role-badge <%= role %>">
+            <% if (role === 'student') { %>
+              <i class="fas fa-user-graduate"></i>
+            <% } else if (role === 'teacher') { %>
+              <i class="fas fa-chalkboard-teacher"></i>
+            <% } else if (role === 'admin') { %>
+              <i class="fas fa-user-shield"></i>
+            <% } %>
+            <%= role %>
+          </span>
+        </div>
+        <span class="separator">·</span>
+    
+      </div>
+
+      <div class="post-content">
+        <%= tweet.description %>
+      </div>
+    </div>
+  <% } %>
+</div>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Theme Assignment Card</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="main-content">
+    <div class="upload-container">
+        <h1>Upload Your Image</h1>
+
+        <form id="upload-form" action="/Add-New-post" method="POST" enctype="multipart/form-data">
+            <div class="upload-area" id="upload-area">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Drag & drop your image here or click to browse</p>
+                <input type="file" id="file-input" name="image" accept="image/*">
+                <button type="button" class="browse-btn">Select Image</button>
+            </div>
+            <div class="Disable">
+                <input type="text" value="<%= registrationId %>" name="registrationId" readonly>
+                <input type="text" value="<%= className %>" name="className" readonly>
+                <input type="text" value="<%= userId %>" name="userId" readonly>
+                <input type="text" value="<%= user_role.role %>" name="role" >
+                <% userInfo.forEach((user)=> { %>
+                    <input type="text" value="<%= user.username %>" name="username" readonly>
+                    
+                    <% }); %>
+            </div>
+            <div class="preview-container" id="preview-container">
+
+
+
+                <img id="image-preview" src="#" alt="Preview">
+                <div class="file-info" id="file-info"></div>
+            </div>
+
+            <div class="description-area">
+                <label for="description">Image Description:</label>
+                <textarea id="description" name="description"
+                    placeholder="Enter a description for your image..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Post</button>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

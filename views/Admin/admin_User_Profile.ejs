@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/slide_bar.css">
+    <link rel="stylesheet" href="/admin_user_profile.css">
+
+   
+</head>
+
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <% if (user_info) { %>
+                <img src="/<%= user_info.profile_img ? user_info.profile_img : 'https://cdn-icons-png.flaticon.com/512/12225/12225935.png' %>"
+                    alt="Profile Picture" class="profile-pic">
+                <% } else { %>
+                    <img src="https://cdn-icons-png.flaticon.com/512/12225/12225935.png" alt="Default Profile Picture" class="profile-pic">
+                    <% } %>
+
+
+                        <h1>
+                            <%= %>
+                        </h1>
+                        <p class="tagline">Your Digital Identity</p>
+        </div>
+
+        <div class="profile-info">
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td class="colon-cell">:</td>
+                    <td>
+                        <%= user.name %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Registration ID</td>
+                    <td class="colon-cell">:</td>
+                    <td>
+                        <%= user.Registration_Id %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email-ID</td>
+                    <td class="colon-cell">:</td>
+                    <td>
+                        <%= user.email %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Father Name</td>
+                    <td class="colon-cell">:</td>
+                    <td>
+                        <%= user.fatherName %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>D-O-B</td>
+                    <td class="colon-cell">:</td>
+                    <td>
+                        <%= user.dob %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sing-up</td>
+                    <td class="colon-cell">:</td>
+                    <td>
+                        <%= user.singUp %>
+                    </td>
+                </tr>
+
+                <% if(user_info){%>
+                <tr>
+                    <td>Username</td>
+                    <td class="colon-cell">:</td>
+                    <td>
+                        <%= user_info.username %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Bio</td>
+                    <td class="colon-cell">:</td>
+                    <td>
+                        <%= user_info.bio %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Followers</td>
+                    <td class="colon-cell">:</td>
+                    <td>
+                        <%= user_info.follower %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Following</td>
+                    <td class="colon-cell">:</td>
+                    <td>
+                        <%= user_info.following %>
+                    </td>
+                </tr>
+                <%}%>
+
+            </table>
+        </div>
+
+        <a href="/Admin/Dashboard" id="theme-toggle" class="theme-btn">Dashbord</a>
+    </div>
+
+    <script>
+    </script>
+</body>
+
+</html>
