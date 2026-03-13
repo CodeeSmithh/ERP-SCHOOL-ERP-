@@ -254,9 +254,6 @@ Open an Issue in the repository
 Provide detailed steps to reproduce the problem
 
 
-
-
-
 📬 Contact
 Email: priyanshuraturi644@gmail.com
 For questions or support regarding the project:
